@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering</title>
+    <link rel="stylesheet" href="/css/questionStyles.css">
+</head>
+<body>
+    <header>
+        <h1 class="glow">Software Engineering</h1>
+        <p>Select a module, access resources, and test your knowledge!</p>
+    </header>
+
+    <!-- Modules Section -->
+    <div class="resources">
+        <a href="/files/Module1.pptx" class="btn-glow">Module 1</a>
+        <p>Introduction to Data Analysis</p>
+    </div>
+    <div class="resources">
+        <a href="/files/Module2.pptx" class="btn-glow">Module 2</a>
+        <p>Overview of Statistical Methods</p>
+    </div>
+
+    <!-- Resources Section -->
+    <div class="resources">
+        <a href="/files/subject1.pdf" class="btn-glow">Download Question Bank</a>
+        <a href="https://www.youtube.com/@GateSmashers" target="_blank" class="btn-glow">
+            Visit Reference YouTube Channel
+        </a>
+    </div>
+
+    <!-- YouTube Video Section -->
+    <div class="video-section">
+        <h2>Module: 1</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vDZfHqAwlkc" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <h2>Module: 2</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HpjD8ih04hM"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz-section">
+        <h2>Quiz: Test Your Knowledge</h2>
+
+        
+        <form id="quiz-form">
+            <p>1. Data Analysis is a process of?</p>
+            <label>
+                <input type="radio" name="quiz1" value="A"> A) Cleaning data
+            </label>
+            <label>
+                <input type="radio" name="quiz1" value="B"> B) Inspecting data
+            </label>
+            <label>
+                <input type="radio" name="quiz1" value="C"> C) Transforming data
+            </label>
+            <label>
+                <input type="radio" name="quiz1" value="D"> D) All of the above
+            </label>
+            
+            <p>2. Data Analytics uses ___ to get insights from data.</p>
+            <label>
+                <input type="radio" name="quiz2" value="A"> A) Statistical figures
+            </label>
+            <label>
+                <input type="radio" name="quiz2" value="B"> B) Statistical methods
+            </label>
+            <label>
+                <input type="radio" name="quiz2" value="C"> C) Numerical aspects
+            </label>
+            <label>
+                <input type="radio" name="quiz2" value="D"> D) None of the above
+            </label>
+
+            <p>3. How many main statistical methodologies are used in data analysis?</p>
+            <label>
+                <input type="radio" name="quiz3" value="A"> A) 2
+            </label>
+            <label>
+                <input type="radio" name="quiz3" value="B"> B) 3
+            </label>
+            <label>
+                <input type="radio" name="quiz3" value="C"> C) 4
+            </label>
+            <label>
+                <input type="radio" name="quiz3" value="D"> D) 5
+            </label>
+
+            
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+
+        <p id="quiz-result" style="margin-top: 15px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let resultText = "";
+            let correctAnswers = {
+                quiz1: "D",
+                quiz2: "B",
+                quiz3: "A"
+                
+            };
+            
+            for (let i = 1; i <= 3; i++) {  // Loop through questions
+                const selected = document.querySelector('input[name="quiz' + i + '"]:checked');
+                if (!selected) {
+                    resultText += `Please answer question ${i}.<br>`;
+                } else {
+                    if (selected.value === correctAnswers['quiz' + i]) {
+                        resultText += `Question ${i}: Correct!<br>`;
+                    } else {
+                        resultText += `Question ${i}: Incorrect!<br>`;
+                    }
+                }
+            }
+
+            document.getElementById('quiz-result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
